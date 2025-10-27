@@ -86,6 +86,22 @@ public class Program
 	// Implement this method following a similar pattern as above
 	public static double Power(string x, string y)
 	{
-		return 0.0;
-	}
+        if (x == null || y == null)
+            throw new ArgumentNullException();
+        double a, b;
+        try
+        {
+            a = double.Parse(x);
+            b = double.Parse(y);
+        }
+        catch (FormatException)
+        {
+            throw;
+        }
+        catch (Exception)
+        {
+            throw new FormatException();
+        }
+        return Math.Pow(a, b);
+    }
 }
